@@ -2,7 +2,7 @@
 
 from datetime import datetime
 from typing import Optional
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, ConfigDict, EmailStr, Field
 from app.enums import Category, Priority, Status
 
 
@@ -13,6 +13,8 @@ class TicketCreate(BaseModel):
 
 
 class TicketOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     title: str
     description: str
@@ -22,9 +24,6 @@ class TicketOut(BaseModel):
     reporter_email: Optional[EmailStr]
     created_at: datetime
     resolved_at: Optional[datetime]
-
-    class Config:
-        orm_mode = True
 
 
 class CategoryOut(BaseModel):
@@ -59,6 +58,8 @@ class ApiRequestCreate(BaseModel):
 
 class ApiRequestOut(BaseModel):
     """Schema for API request output."""
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     method: str
     path: str
@@ -67,9 +68,6 @@ class ApiRequestOut(BaseModel):
     user_agent: Optional[str]
     ip_address: Optional[str]
     created_at: datetime
-
-    class Config:
-        orm_mode = True
 
 
 class PaginatedApiRequests(BaseModel):
