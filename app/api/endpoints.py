@@ -1,20 +1,21 @@
 from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
-from app import crud, schemas
-from app.dependencies import get_db
+from app import crud
+from api import schemas
+from api.dependencies import get_db
 
 router = APIRouter(prefix="/api")
 
 
-# ==================== TICKET ENDPOINTS ====================
+# TICKET ENDPOINTS
 
 @router.post("/tickets", response_model=schemas.TicketOut, tags=["Tickets"])
 def create_ticket(ticket_in: schemas.TicketCreate, db: Session = Depends(get_db)):
     """
     Create a new ticket.
 
-    The ticket will be automatically categorized and prioritized based on its content.
+    The ticket will be automatically categorized and prioritized based on its title and description..
     """
     ticket = crud.create_ticket(db, ticket_in)
     return ticket
@@ -105,7 +106,7 @@ def resolve_ticket(ticket_id: int, db: Session = Depends(get_db)):
     return ticket
 
 
-# ==================== API REQUEST ENDPOINTS ====================
+# API REQUEST ENDPOINTS
 
 @router.post("/requests", response_model=schemas.ApiRequestOut, tags=["API Requests"])
 def create_api_request(request_in: schemas.ApiRequestCreate, db: Session = Depends(get_db)):

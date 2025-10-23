@@ -6,7 +6,7 @@ ApiRequest model is implemented here for now.
 
 from sqlalchemy import Column, Integer, String, Float, DateTime, func, Enum as SAEnum
 from app.database import Base
-from app.enums import Category, Priority, Status
+from enums import Category, Priority, Status
 
 
 class ApiRequest(Base):

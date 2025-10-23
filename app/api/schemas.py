@@ -3,7 +3,7 @@
 from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
-from app.enums import Category, Priority, Status
+from enums import Category, Priority, Status
 
 
 class TicketCreate(BaseModel):

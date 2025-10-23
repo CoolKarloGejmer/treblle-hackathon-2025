@@ -3,8 +3,9 @@
 from typing import List, Optional, Tuple
 from sqlalchemy.orm import Session
 from sqlalchemy import func
-from app import models, schemas
-from app.enums import Category, Priority, Status
+from app import models
+from api import schemas
+from enums import Category, Priority, Status
 
 
 def classify_text(title: str, description: str) -> Tuple[str, str]:

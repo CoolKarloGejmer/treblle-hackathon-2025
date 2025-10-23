@@ -1,6 +1,6 @@
 from enum import Enum
 
-
+#ENUM CLASSES FOR TICKET PROPERTIES
 class Category(str, Enum):
     bug = "bug"
     feature_request = "feature_request"

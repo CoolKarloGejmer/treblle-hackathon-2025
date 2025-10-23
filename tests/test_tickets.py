@@ -29,7 +29,7 @@ def cleanup_database():
         db.close()
 
 
-# ==================== TICKET TESTS ====================
+# TICKET TESTS
 
 def test_create_ticket_bug():
     """Test creating a ticket that should be categorized as bug."""
@@ -208,7 +208,7 @@ def test_resolve_nonexistent_ticket():
     assert r.status_code == 404
 
 
-# ==================== API REQUEST TESTS ====================
+# API REQUEST TESTS
 
 def test_create_api_request():
     """Test creating an API request record."""

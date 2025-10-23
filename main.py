@@ -1,7 +1,7 @@
 """Application entrypoint.
 
 Creates database tables on startup and exposes a FastAPI app
-with comprehensive OpenAPI documentation.
+with OpenAPI documentation.
 """
 
 from fastapi import FastAPI
@@ -31,31 +31,8 @@ This API provides comprehensive ticket management and API request tracking capab
 * **Filter and sort** by method, response code, response time, and path
 * **List and search** with pagination support
 * Supports **time-based filtering** for performance analysis
-
-### Base Requirements (Bazni dio)
-This API fulfills all "Bazni dio" requirements:
-- ✅ List view and table view support
-- ✅ Sorting by created_at and response_time
-- ✅ Filtering by method, response code, and time
-- ✅ Search functionality
-- ✅ Problem object (Ticket) with categorization
-- ✅ REST API design
-- ✅ Full git flow support
-- ✅ Local SQLite database
-
-### Advanced Features (Napredni dio)
-- ✅ Backend covered with tests
-- ✅ Backend covered with OpenAPI documentation
-- ✅ Backend uses local database (SQLite)
     """,
     version="1.0.0",
-    contact={
-        "name": "API Support",
-        "email": "support@example.com",
-    },
-    license_info={
-        "name": "MIT",
-    },
     openapi_tags=[
         {
             "name": "Tickets",
