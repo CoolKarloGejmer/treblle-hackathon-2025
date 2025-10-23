@@ -1,0 +1,41 @@
+Bazni dio zadatka
+Problem koji rješavate je prikaz API request-ova za jedan API po vašem izboru. Samo
+rješenje mora imati full git flow, mora imati zasebni repo za FE i BE, te koristimo REST
+API dizajn API-ja.
+Samo rješenje mora podržavati:
+● list view
+○ Method
+○ Response
+○ path
+○ response time
+○ Created at
+● table view
+○ Method
+○ Response
+○ path
+○ response time
+○ Created at
+● sort by
+○ Created at
+○ response time
+● filter
+○ Method
+○ response
+○ time (response time or created at or both)
+● search function
+● define a Problem object for an API within your application and apply the same
+base requirements as list view, table view, sort and filter. You decide what should
+be visible for each, depending on your definition of a problem object.
+2
+Napredni dio zadatka
+Za dodatne bodove možete probati riješiti bilo koji od sljedećih zahtjeva:
+● Implement custom design with gradient
+○ ✏️Link to Figma prototype / 🎨Link to fonts & colors
+● In your solution use ArkUI/ParkUI
+● In your solution use Panda CSS
+● Backend written in PHP or GO
+● Backend covered with tests
+● Backend covered with documentation (OpenAPI Specification)
+● Backend uses a local DB on your device
+● Your solution is dockerized
+● Your solution is deployed on an external server or a cloud provider
