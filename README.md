@@ -37,6 +37,60 @@ The API will be available at `http://localhost:8000`.
 ## Usage  
 Use the API to create, read, update, and delete tickets and API request logs. It supports filtering, sorting, and searching on key fields. For detailed API endpoint information, refer to the generated OpenAPI documentation at the links above.
 
+## Usage Examples
+
+### Create a Ticket
+
+```bash
+curl -X POST "http://localhost:8000/api/tickets" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Application error on save",
+    "description": "An exception occurs when saving data",
+    "reporter_email": "user@example.com"
+  }'
+ ```
+  
+## The ticket will be automatically categorized as a "bug" with appropriate priority.
+
+## Search Tickets
+```bash
+curl "http://localhost:8000/api/tickets/search?search=error&category=bug&sort_by=created_at&sort_order=desc"
+```
+
+## Record an API Request
+```bash
+curl -X POST "http://localhost:8000/api/requests" \
+-H "Content-Type: application/json" \
+-d '{
+"method": "GET",
+"path": "/api/users",
+"response_code": 200,
+"response_time": 0.123,
+"user_agent": "Mozilla/5.0",
+"ip_address": "192.168.1.1"
+}'
+```
+
+## Filter and Sort API Requests
+
+```bash
+curl "http://localhost:8000/api/requests?method=GET&min_response_time=0.1&max_response_time=1.0&sort_by=response_time&sort_order=asc"
+```
+
+## Searching, Sorting and Filtering
+Available features include:
+
+**Searching & Filtering**
+- Full-text search in ticket titles and descriptions
+- Filter tickets by category, status, priority
+- Filter API requests by method, response code, path
+- Time-based filtering for response times
+
+**Sorting**
+- Sort by created_at (ascending or descending)
+- Sort by response_time for API requests
+- Sort by priority for tickets
 ---
 
 ## Project Structure  
